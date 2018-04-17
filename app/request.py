@@ -46,3 +46,18 @@ def process_results(sources_list):
         source_object = Sources(id, name, description, url, category)
         sources_results.append(source_object)
     return sources_results
+
+def get_articles(article_list):
+    '''
+    Function to get a source and it's articles
+    '''
+    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(id,api_key)
+
+    with urllib.request.urlopen(get_articles_url) as url:
+        get_articles_data = url.read()
+        get_articles_response = json.loads(get_articles_data)
+        articles_results = None
+        if get_articles_respose['articles']
+            articles_results_list = get_articles_respose['articles']
+            articles_results = process_articles(articles_results_list)
+        return articles_results
