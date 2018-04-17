@@ -7,10 +7,14 @@ api_key = None
 
 # Getting the news base url
 base_url = None
+
+
 def configure_request(app):
     global api_key, base_url
     api_key = app.config['NEWS_API_KEY']
     base_url = app.config['NEWS_API_BASE_URL']
+
+
 def get_sources(sources):
     '''
     Fuction to retrieve news sources list from the News api_key
@@ -60,7 +64,7 @@ def get_articles(article_list):
         if get_articles_respose['articles']
             articles_results_list = get_articles_respose['articles']
             articles_results = process_articles(articles_results_list)
-            
+
         return articles_results
 
 def process_articles(article_list):
